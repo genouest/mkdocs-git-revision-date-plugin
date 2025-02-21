@@ -30,7 +30,7 @@ class GitRevisionDatePlugin(BasePlugin):
         if not self.enabled:
             return markdown
 
-        revision_date = self.util.get_revision_date_for_file(path.realpathpage.file.abs_src_path))
+        revision_date = self.util.get_revision_date_for_file(path.realpath(page.file.abs_src_path))
 
         if not revision_date:
             revision_date = datetime.now().date().strftime('%Y-%m-%d')
