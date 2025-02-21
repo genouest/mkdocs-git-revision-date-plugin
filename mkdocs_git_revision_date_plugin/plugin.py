@@ -1,5 +1,5 @@
 import re
-from os import environ
+from os import environ, path
 from datetime import datetime
 
 from mkdocs.config import config_options
@@ -30,7 +30,7 @@ class GitRevisionDatePlugin(BasePlugin):
         if not self.enabled:
             return markdown
 
-        revision_date = self.util.get_revision_date_for_file(page.file.abs_src_path)
+        revision_date = self.util.get_revision_date_for_file(path.realpathpage.file.abs_src_path))
 
         if not revision_date:
             revision_date = datetime.now().date().strftime('%Y-%m-%d')
@@ -63,5 +63,5 @@ class GitRevisionDatePlugin(BasePlugin):
                           revision_date,
                           markdown,
                           flags=re.IGNORECASE)
-            
+
             return markdown
